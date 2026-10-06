@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نسرين عادل باقطيان | مهندسة حاسوب ومطورة واجهات ويب</title>
+  <meta name="description" content="الموقع الشخصي والسيرة الذاتية للمهندسة نسرين عادل باقطيان - مهندسة حاسوب خريجة جامعة حضرموت كلية الهندسة والبترول، متخصصة في تطوير المواقع وتطبيقات الويب الحديثة.">
+  <meta name="keywords" content="نسرين باقطيان, مهندسة حاسوب, تطوير مواقع, مطور فرونت اند, حضرموت, اليمن, سيرة ذاتية, Tailwind CSS, JavaScript">
+  <meta name="author" content="نسرين عادل باقطيان">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+
+  <!-- Google Fonts: Cairo & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif'],
+            mono: ['Plus Jakarta Sans', 'monospace']
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              300: '#a5b4fc',
+              400: '#818cf8',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              800: '#3730a3',
+              900: '#312e81',
+              950: '#1e1b4b'
+            }
+          },
+          boxShadow: {
+            'glow': '0 0 35px -5px rgba(99, 102, 241, 0.35)',
+            'glow-cyan': '0 0 35px -5px rgba(6, 182, 212, 0.35)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Styles with Animation System -->
+  <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body class="bg-slate-50 text-slate-800 dark:bg-[#0b0f19] dark:text-slate-100 transition-colors duration-300 selection:bg-indigo-500 selection:text-white min-h-screen relative overflow-x-hidden">
+
+  <!-- Scroll Reading Progress Bar at Top -->
+  <div id="scroll-progress"></div>
+
+  <!-- Interactive Ambient Canvas Particle Background -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- Glowing Mesh Background Decorations -->
+  <div class="fixed inset-0 pointer-events-none z-0 mesh-gradient opacity-60 dark:opacity-80"></div>
+  <div class="fixed top-12 left-10 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-600/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow"></div>
+  <div class="fixed bottom-10 right-10 w-96 h-96 bg-cyan-500/10 dark:bg-cyan-600/15 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-glow" style="animation-delay: 2s;"></div>
+
+  <!-- =========================================================================
+       HEADER & NAVIGATION
+       ========================================================================= -->
+  <header id="main-navbar" class="sticky top-0 z-40 w-full glass border-b border-slate-200/80 dark:border-slate-800/80 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo / Brand -->
+        <a href="#hero" class="flex items-center gap-3 group focus:outline-none">
+          <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-cyan-400 flex items-center justify-center text-white shadow-lg shadow-indigo-500/30 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300">
+            <i class="fa-solid fa-code text-lg"></i>
+          </div>
+          <div class="flex flex-col text-right">
+            <span class="text-xl font-bold tracking-tight text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+              نسرين باقطيان
+            </span>
+            <span class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">
+              مهندسة حاسوب ومطورة ويب
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav id="desktop-nav" class="hidden md:flex items-center gap-1 lg:gap-2">
+          <a href="#hero" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition-all">
+            الرئيسية
+          </a>
+          <a href="#about" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition-all">
+            عني
+          </a>
+          <a href="#skills" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition-all">
+            المهارات
+          </a>
+          <a href="#portfolio" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition-all">
+            المشاريع
+          </a>
+          <a href="#contact" class="px-4 py-2 rounded-xl text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-100/60 dark:hover:bg-slate-800/60 transition-all">
+            تواصل معي
+          </a>
+        </nav>
+
+        <!-- Header Actions: Theme Switcher & CV Button & Mobile Toggle -->
+        <div class="flex items-center gap-2 sm:gap-3">
+
+          <!-- Dark / Light Mode Toggle Button -->
+          <button type="button" aria-label="تبديل الوضع الليلي والنهاري" class="theme-toggle-btn btn-ripple w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center transition-all duration-300 shadow-sm hover:scale-105">
+            <i class="fa-solid fa-moon text-lg theme-icon-moon"></i>
+            <i class="fa-solid fa-sun text-lg theme-icon-sun hidden"></i>
+          </button>
+
+          <!-- CV Modal Button -->
+          <button type="button" class="open-cv-modal btn-ripple hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-sm font-semibold transition-all hover:scale-105">
+            <i class="fa-regular fa-file-pdf text-indigo-500"></i>
+            <span>السيرة الذاتية</span>
+          </button>
+
+          <!-- Contact Quick Button (CTA) -->
+          <a href="#contact" class="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-medium text-sm shadow-md shadow-indigo-600/25 hover:shadow-lg hover:shadow-indigo-600/40 hover:-translate-y-0.5 transition-all btn-ripple">
+            <i class="fa-solid fa-paper-plane text-xs"></i>
+            <span>وظّفني</span>
+          </a>
+
+          <!-- Mobile Hamburger Menu Button -->
+          <button id="mobile-menu-btn" type="button" aria-label="فتح القائمة الرئيسية" class="md:hidden w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center transition-colors">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop -->
+  <div id="mobile-backdrop" class="fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer" class="fixed top-0 right-0 w-80 max-w-[85vw] h-full bg-white dark:bg-slate-900 border-l border-slate-200 dark:border-slate-800 z-50 translate-x-full transition-transform duration-300 ease-out flex flex-col p-6 shadow-2xl md:hidden overflow-y-auto">
+    <!-- Drawer Header -->
+    <div class="flex items-center justify-between pb-6 border-b border-slate-100 dark:border-slate-800">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-400 flex items-center justify-center text-white font-bold text-sm">
+          ن
+        </div>
+        <div class="text-right">
+          <h3 class="font-bold text-slate-900 dark:text-white">نسرين عادل</h3>
+          <p class="text-xs text-indigo-600 dark:text-indigo-400">مهندسة حاسوب</p>
+        </div>
+      </div>
+      <button id="mobile-menu-close" aria-label="إغلاق القائمة" class="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-700">
+        <i class="fa-solid fa-xmark text-lg"></i>
+      </button>
+    </div>
+
+    <!-- Drawer Navigation Links -->
+    <nav class="flex flex-col gap-2 py-6">
+      <a href="#hero" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800/60 hover:text-indigo-600 transition-colors font-medium">
+        <i class="fa-solid fa-house text-indigo-500 w-5"></i>
+        <span>الرئيسية</span>
+      </a>
+      <a href="#about" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800/60 hover:text-indigo-600 transition-colors font-medium">
+        <i class="fa-solid fa-user-tie text-indigo-500 w-5"></i>
+        <span>عني وسيرتي</span>
+      </a>
+      <a href="#skills" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800/60 hover:text-indigo-600 transition-colors font-medium">
+        <i class="fa-solid fa-laptop-code text-indigo-500 w-5"></i>
+        <span>المهارات التقنية</span>
+      </a>
+      <a href="#portfolio" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800/60 hover:text-indigo-600 transition-colors font-medium">
+        <i class="fa-solid fa-cubes text-indigo-500 w-5"></i>
+        <span>المشاريع والأعمال</span>
+      </a>
+      <a href="#contact" class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-700 dark:text-slate-200 hover:bg-indigo-50 dark:hover:bg-slate-800/60 hover:text-indigo-600 transition-colors font-medium">
+        <i class="fa-solid fa-envelope text-indigo-500 w-5"></i>
+        <span>تواصل معي</span>
+      </a>
+    </nav>
+
+    <!-- Drawer Footer Actions -->
+    <div class="mt-auto pt-6 border-t border-slate-100 dark:border-slate-800 flex flex-col gap-3">
+      <button type="button" class="open-cv-modal w-full py-3 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 font-semibold flex items-center justify-center gap-2 hover:bg-indigo-50 dark:hover:bg-slate-700">
+        <i class="fa-solid fa-file-arrow-down text-indigo-500"></i>
+        <span>معاينة وتحميل CV</span>
+      </button>
+      <a href="#contact" class="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-center shadow-lg shadow-indigo-600/30">
+        بدء التواصل
+      </a>
+      <div class="flex items-center justify-center gap-4 pt-3 text-slate-500 text-lg">
+        <a href="https://github.com/nisreen2hh" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition-colors" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="https://linkedin.com/in/nisreen2hh" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://x.com/nisreen2hh" target="_blank" rel="noopener noreferrer" class="hover:text-indigo-600 transition-colors" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="mailto:nisreen2hh@gmail.com" class="hover:text-indigo-600 transition-colors" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <main class="relative z-10">
+    <!-- =========================================================================
+         HERO SECTION (قسم الترحيب الرئيسي)
+         ========================================================================= -->
+    <section id="hero" class="relative pt-10 pb-20 md:pt-16 md:pb-28 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+          <!-- Hero Text Content (7 cols) -->
+          <div class="lg:col-span-7 flex flex-col items-start text-right reveal-right">
+
+            <!-- Availability Badge -->
+            <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200/80 dark:border-indigo-800/80 text-indigo-700 dark:text-indigo-300 text-xs sm:text-sm font-semibold mb-6 shadow-sm hover:scale-105 transition-transform">
+              <span class="relative flex h-2.5 w-2.5">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+              </span>
+              <span>متاحة للعمل الحر والفرص الهندسية الواعدة</span>
+            </div>
+
+            <!-- Main Heading with Name and Title -->
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white leading-[1.2] tracking-tight mb-3">
+              مرحباً بك، أنا <br class="hidden sm:block">
+              <span class="shimmer-text">نسرين عادل باقطيان</span>
+            </h1>
+
+            <!-- Animated Typewriter Subtitle -->
+            <div class="flex items-center gap-2 mb-6 min-h-[36px] bg-slate-100/70 dark:bg-slate-800/60 px-4 py-1.5 rounded-xl border border-slate-200/50 dark:border-slate-700/50">
+              <span class="text-xs sm:text-sm font-bold text-indigo-600 dark:text-indigo-400 font-mono">
+                &gt;&nbsp;<span id="typewriter-text" class="text-slate-800 dark:text-slate-100">مهندسة حاسوب</span>
+              </span>
+              <span class="typing-cursor"></span>
+            </div>
+
+            <!-- Location & University Taglines -->
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+              <span class="px-3.5 py-1.5 rounded-lg bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 font-bold text-sm sm:text-base flex items-center gap-2">
+                <i class="fa-solid fa-laptop-code text-indigo-500"></i>
+                مهندسة حاسوب
+              </span>
+              <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-sm sm:text-base flex items-center gap-2">
+                <i class="fa-solid fa-location-dot text-rose-500"></i>
+                اليمن / حضرموت
+              </span>
+              <span class="px-3.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-medium text-sm sm:text-base flex items-center gap-2">
+                <i class="fa-solid fa-graduation-cap text-sky-500"></i>
+                جامعة حضرموت | كلية الهندسة والبترول
+              </span>
+            </div>
+
+            <!-- Catchy Summary / Intro -->
+            <p class="text-lg sm:text-xl text-slate-600 dark:text-slate-300 font-normal leading-relaxed mb-8 max-w-2xl">
+              خريجة جامعة حضرموت كلية الهندسة والبترول، متخصصة في تطوير المواقع والتطبيقات الإلكترونية. شغفي يكمن في ابتكار واجهات ويب تفاعلية حديثة، تجمع بين الرؤية الهندسية الصارمة وتجربة المستخدم السلسة ذات الأداء الفائق.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto mb-10">
+
+              <!-- Download / Preview CV Button with Glow Border -->
+              <button type="button" class="open-cv-modal btn-glow-border btn-ripple w-full sm:w-auto inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-700 hover:from-indigo-500 hover:to-purple-600 text-white font-bold text-base shadow-xl shadow-indigo-600/30 hover:shadow-indigo-600/50 hover:-translate-y-0.5 transition-all">
+                <i class="fa-solid fa-file-pdf text-lg"></i>
+                <span>تحميل السيرة الذاتية PDF</span>
+              </button>
+
+              <!-- Contact Button -->
+              <a href="#contact" class="btn-ripple w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-2xl bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 font-bold text-base shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all">
+                <i class="fa-solid fa-comment-dots text-indigo-500"></i>
+                <span>تواصل معي</span>
+              </a>
+
+              <!-- Direct WhatsApp Button -->
+              <a href="https://wa.me/967774805950" target="_blank" rel="noopener noreferrer" class="btn-ripple w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 border border-emerald-500/30 font-semibold text-sm transition-all hover:-translate-y-0.5" title="محادثة واتساب سريعة">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>واتساب: 774805950</span>
+              </a>
+            </div>
+
+            <!-- Tech Pills Stack -->
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 w-full">
+              <span class="text-xs font-semibold uppercase text-slate-400 dark:text-slate-500 tracking-wider block mb-3">
+                التقنيات الأساسية التي أتقنها:
+              </span>
+              <div class="flex flex-wrap gap-2 text-xs font-medium">
+                <span class="px-3 py-1.5 rounded-lg bg-orange-500/10 text-orange-600 dark:text-orange-400 border border-orange-500/20 hover:scale-105 transition-transform">HTML5 Semantic</span>
+                <span class="px-3 py-1.5 rounded-lg bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20 hover:scale-105 transition-transform">Tailwind CSS</span>
+                <span class="px-3 py-1.5 rounded-lg bg-yellow-500/10 text-yellow-600 dark:text-yellow-400 border border-yellow-500/20 hover:scale-105 transition-transform">JavaScript (ES6+)</span>
+                <span class="px-3 py-1.5 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20 hover:scale-105 transition-transform">React.js</span>
+                <span class="px-3 py-1.5 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 hover:scale-105 transition-transform">Responsive & RTL</span>
+                <span class="px-3 py-1.5 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 hover:scale-105 transition-transform">Git & GitHub</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Hero Visual & Floating Cards with 3D Tilt (5 cols) -->
+          <div class="lg:col-span-5 relative flex justify-center items-center reveal-left">
+
+            <!-- Glowing background aura -->
+            <div class="absolute w-72 sm:w-80 h-72 sm:h-80 bg-gradient-to-tr from-indigo-500 via-purple-500 to-cyan-400 rounded-full blur-3xl opacity-35 dark:opacity-45 animate-pulse-glow"></div>
+
+            <div class="relative w-full max-w-sm sm:max-w-md tilt-card">
+
+              <!-- Main Avatar Image Container -->
+              <div class="relative rounded-3xl p-2 bg-gradient-to-b from-indigo-500/30 via-slate-200/40 to-transparent dark:from-indigo-500/20 dark:via-slate-800/40 shadow-2xl">
+                <div class="relative overflow-hidden rounded-2xl bg-slate-900 border border-white/20 dark:border-white/10 group">
+                  <img src="assets/images/avatar.jpg" alt="نسرين عادل باقطيان - مهندسة حاسوب ومطورة واجهات ويب" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+
+                  <!-- Bottom Overlay details -->
+                  <div class="absolute bottom-4 right-4 left-4 p-3 rounded-xl glass-card text-right">
+                    <div class="flex items-center justify-between">
+                      <div>
+                        <h4 class="text-sm font-bold text-slate-900 dark:text-white">نسرين عادل باقطيان</h4>
+                        <p class="text-xs text-indigo-600 dark:text-indigo-400 font-medium">مهندسة حاسوب | مطورة ويب</p>
+                      </div>
+                      <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-xs shadow-md">
+                        <i class="fa-solid fa-check"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Floating Card 1: Experience / Projects -->
+              <div class="absolute -top-4 -right-4 sm:-right-6 glass-card p-3 sm:p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-float-slow">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center text-base shadow-md">
+                  <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">إنجاز هندسي</div>
+                  <div class="text-sm font-bold text-slate-900 dark:text-white">+15 مشروعاً متقناً</div>
+                </div>
+              </div>
+
+              <!-- Floating Card 2: Code Quality -->
+              <div class="absolute -bottom-6 -left-4 sm:-left-6 glass-card p-3 sm:p-4 rounded-2xl shadow-xl flex items-center gap-3 animate-float-reverse">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center text-base shadow-md">
+                  <i class="fa-solid fa-code-compare"></i>
+                </div>
+                <div class="text-right">
+                  <div class="text-xs text-slate-500 dark:text-slate-400 font-medium">معايير العمل</div>
+                  <div class="text-sm font-bold text-slate-900 dark:text-white">كود نظيف وعصري</div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Stats Bar Container (Reveal Zoom) -->
+        <div id="stats-container" class="mt-16 pt-8 border-t border-slate-200/80 dark:border-slate-800/80 grid grid-cols-2 md:grid-cols-4 gap-6 text-center reveal-zoom">
+          <div class="glass-card p-5 rounded-2xl hover:border-indigo-500/40 hover:-translate-y-1 transition-all tilt-card">
+            <div class="text-3xl sm:text-4xl font-black text-indigo-600 dark:text-indigo-400 mb-1 flex justify-center items-center gap-1">
+              <span>+</span><span class="stat-number" data-target="15">0</span>
+            </div>
+            <p class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400">مشروع وتطبيق ويب</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl hover:border-cyan-500/40 hover:-translate-y-1 transition-all tilt-card">
+            <div class="text-3xl sm:text-4xl font-black text-cyan-600 dark:text-cyan-400 mb-1 flex justify-center items-center gap-1">
+              <span>%</span><span class="stat-number" data-target="100">0</span>
+            </div>
+            <p class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400">التزام بالمواعيد والدقة</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl hover:border-purple-500/40 hover:-translate-y-1 transition-all tilt-card">
+            <div class="text-3xl sm:text-4xl font-black text-purple-600 dark:text-purple-400 mb-1 flex justify-center items-center gap-1">
+              <span>+</span><span class="stat-number" data-target="3">0</span>
+            </div>
+            <p class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400">سنوات دراسة وشغف هندسي</p>
+          </div>
+
+          <div class="glass-card p-5 rounded-2xl hover:border-emerald-500/40 hover:-translate-y-1 transition-all tilt-card">
+            <div class="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400 mb-1 flex justify-center items-center gap-1">
+              <span>/</span><span class="stat-number" data-target="24">0</span><span>7</span>
+            </div>
+            <p class="text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-400">تواصل سريع ودعم دائم</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         ABOUT ME SECTION (قسم عني)
+         ========================================================================= -->
+    <section id="about" class="py-20 bg-slate-100/50 dark:bg-slate-900/30 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+          <span class="text-xs sm:text-sm font-bold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase bg-indigo-50 dark:bg-indigo-950/60 px-4 py-1.5 rounded-full border border-indigo-200/50 dark:border-indigo-800/50 inline-block mb-3">
+            سيرة ذاتية ورؤية هندسية
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            عني، خبراتي، وأهدافي المهنية
+          </h2>
+          <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+          <!-- Story Text (7 cols) -->
+          <div class="lg:col-span-7 space-y-6 text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed text-right reveal-right">
+
+            <div class="p-6 rounded-2xl glass-card border border-indigo-500/10 relative overflow-hidden tilt-card">
+              <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-indigo-500/5 rounded-full blur-2xl pointer-events-none"></div>
+
+              <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-3">
+                <i class="fa-solid fa-graduation-cap text-indigo-600 dark:text-indigo-400"></i>
+                <span>الخلفية الأكاديمية والشغف البرمجي</span>
+              </h3>
+              <p>
+                خريجة <strong class="text-slate-900 dark:text-white">جامعة حضرموت - كلية الهندسة والبترول</strong> بتخصص هندسة الحاسوب. منحني هذا التخصص قاعدة علمية وهندسية متينة في التفكير المنطقي، الخوارزميات، وبنية الأنظمة، وهو ما ساعدني على التميز في مجال تطوير واجهات الويب (Front-End Web Development).
+              </p>
+            </div>
+
+            <p>
+              أركز في عملي على بناء تجارب رقمية عصرية متكاملة تحاكي أحدث معايير الويب العالمية؛ حيث أستغل قدرات <strong class="text-indigo-600 dark:text-indigo-400">HTML5 المعياري، Tailwind CSS فائق السرعة، و JavaScript التفاعلي النظيف</strong> لتحويل التصاميم والنماذج إلى واقع رقمي ينبض بالحياة، متوافق مع كافة أحجام الشاشات وتدعم اتجاه اليمين لليسار (RTL) بشكل مثالي.
+            </p>
+
+            <p>
+              أهدافي المهنية تتمحور حول تقديم قيمة حقيقية للعملاء وأصحاب الأعمال، والمساهمة في بناء مشاريع رقمية ريادية تلبي تطلعات المستخدم العربي، مع الحرص المستمر على التعلم الذاتي ومواكبة أحدث تقنيات الويب المتسارعة.
+            </p>
+
+            <!-- Quick Info Highlights Badges -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 hover:border-indigo-500/50 transition-colors">
+                <i class="fa-solid fa-id-card text-indigo-500 text-lg"></i>
+                <div class="text-sm">
+                  <span class="text-slate-400 block text-xs">الاسم بالكامل:</span>
+                  <span class="font-bold text-slate-800 dark:text-slate-200">نسرين عادل باقطيان</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 hover:border-rose-500/50 transition-colors">
+                <i class="fa-solid fa-map-location-dot text-rose-500 text-lg"></i>
+                <div class="text-sm">
+                  <span class="text-slate-400 block text-xs">مكان الإقامة:</span>
+                  <span class="font-bold text-slate-800 dark:text-slate-200">اليمن / حضرموت</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 hover:border-sky-500/50 transition-colors">
+                <i class="fa-solid fa-envelope text-sky-500 text-lg"></i>
+                <div class="text-sm truncate">
+                  <span class="text-slate-400 block text-xs">البريد الإلكتروني:</span>
+                  <span class="font-bold text-slate-800 dark:text-slate-200">nisreen2hh@gmail.com</span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-3 p-3.5 rounded-xl bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 hover:border-emerald-500/50 transition-colors">
+                <i class="fa-brands fa-whatsapp text-emerald-500 text-lg"></i>
+                <div class="text-sm">
+                  <span class="text-slate-400 block text-xs">رقم الاتصال / واتساب:</span>
+                  <span class="font-bold text-slate-800 dark:text-slate-200 font-mono">774805950</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Strengths & Core Pillars (5 cols) -->
+          <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 reveal-left">
+
+            <div class="p-5 rounded-2xl glass-card hover:border-indigo-500/50 transition-all duration-300 group tilt-card">
+              <div class="flex items-center gap-4 mb-2">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-6 transition-all">
+                  <i class="fa-solid fa-layer-group"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white">بنية كود نظيفة وهندسية</h4>
+                  <span class="text-xs text-slate-400">Clean Architecture & Maintainability</span>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 dark:text-slate-300">
+                كتابة أكواد برمجية منظمة، سهلة التعديل، وقابلة للتطوير مع الالتزام بأفضل الممارسات الهندسية.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl glass-card hover:border-cyan-500/50 transition-all duration-300 group tilt-card">
+              <div class="flex items-center gap-4 mb-2">
+                <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-6 transition-all">
+                  <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white">تجاوب فائق مع جميع الشاشات</h4>
+                  <span class="text-xs text-slate-400">100% Mobile & Desktop Responsive</span>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 dark:text-slate-300">
+                ملاءمة كاملة مع شاشات الهواتف، الأجهزة اللوحية والحواسيب بدعم كامل واحترافي للاتجاه العربي (RTL).
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl glass-card hover:border-purple-500/50 transition-all duration-300 group tilt-card">
+              <div class="flex items-center gap-4 mb-2">
+                <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-6 transition-all">
+                  <i class="fa-solid fa-gauge-high"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white">أداء فائق وسرعة تحميل</h4>
+                  <span class="text-xs text-slate-400">Blazing Fast Speed & SEO</span>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 dark:text-slate-300">
+                تحسين سرعة تحميل الصفحات وتجهيز البنية البرمجية لمحركات البحث لتحقيق تجربة استثنائية.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-2xl glass-card hover:border-emerald-500/50 transition-all duration-300 group tilt-card">
+              <div class="flex items-center gap-4 mb-2">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 group-hover:rotate-6 transition-all">
+                  <i class="fa-solid fa-brain"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-900 dark:text-white">حل المشكلات والتعلم الذاتي</h4>
+                  <span class="text-xs text-slate-400">Problem Solving & Fast Learner</span>
+                </div>
+              </div>
+              <p class="text-sm text-slate-600 dark:text-slate-300">
+                قدرة عالية على تشخيص الأخطاء وحلها بسرعة، واستيعاب التقنيات والأدوات الجديدة بمرونة تامة.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SKILLS SECTION (قسم المهارات)
+         ========================================================================= -->
+    <section id="skills" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Title -->
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+          <span class="text-xs sm:text-sm font-bold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase bg-indigo-50 dark:bg-indigo-950/60 px-4 py-1.5 rounded-full border border-indigo-200/50 dark:border-indigo-800/50 inline-block mb-3">
+            الكفاءات والخبرات
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            المهارات التقنية والشخصية
+          </h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-400 text-base">
+            مزيج متناغم من المهارات البرمجية الدقيقة والمهارات الهندسية والشخصية التي تضمن نجاح أي مشروع
+          </p>
+          <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+          <!-- Category 1: Front-End Core (Progress Bars) -->
+          <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 flex flex-col justify-between hover:shadow-xl transition-all tilt-card reveal-zoom">
+            <div>
+              <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200/60 dark:border-slate-800/60">
+                <div class="w-12 h-12 rounded-2xl bg-indigo-600/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl">
+                  <i class="fa-solid fa-code"></i>
+                </div>
+                <div class="text-right">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">تطوير الواجهات</h3>
+                  <span class="text-xs text-slate-400">Front-End Development</span>
+                </div>
+              </div>
+
+              <div class="space-y-5">
+                <!-- HTML5 -->
+                <div>
+                  <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                      <i class="fa-brands fa-html5 text-orange-500"></i> HTML5 (Semantic & RTL)
+                    </span>
+                    <span class="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">95%</span>
+                  </div>
+                  <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-orange-500 to-amber-500 rounded-full skill-bar-fill" data-width="95%"></div>
+                  </div>
+                </div>
+
+                <!-- Tailwind CSS -->
+                <div>
+                  <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                      <i class="fa-brands fa-css3-alt text-sky-400"></i> Tailwind CSS & Responsive
+                    </span>
+                    <span class="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">95%</span>
+                  </div>
+                  <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-sky-400 to-cyan-500 rounded-full skill-bar-fill" data-width="95%"></div>
+                  </div>
+                </div>
+
+                <!-- JavaScript ES6+ -->
+                <div>
+                  <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                      <i class="fa-brands fa-square-js text-yellow-400"></i> JavaScript (ES6+ / DOM)
+                    </span>
+                    <span class="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">88%</span>
+                  </div>
+                  <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full skill-bar-fill" data-width="88%"></div>
+                  </div>
+                </div>
+
+                <!-- React.js -->
+                <div>
+                  <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                      <i class="fa-brands fa-react text-cyan-400"></i> React.js (Components / Hooks)
+                    </span>
+                    <span class="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">82%</span>
+                  </div>
+                  <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-cyan-400 to-indigo-500 rounded-full skill-bar-fill" data-width="82%"></div>
+                  </div>
+                </div>
+
+                <!-- CSS3 & Animations -->
+                <div>
+                  <div class="flex justify-between items-center mb-1.5">
+                    <span class="text-sm font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                      <i class="fa-solid fa-wand-magic-sparkles text-purple-400"></i> CSS Animations & UI
+                    </span>
+                    <span class="text-xs font-mono font-bold text-indigo-600 dark:text-indigo-400">90%</span>
+                  </div>
+                  <div class="w-full h-2.5 bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full skill-bar-fill" data-width="90%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800/60 text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+              <i class="fa-solid fa-circle-check text-emerald-500"></i>
+              <span>بناء واجهات متناسقة وسريعة الاستجابة وفق المقاييس الحديثة</span>
+            </div>
+          </div>
+
+          <!-- Category 2: Tools & Workflow (Grid Cards) -->
+          <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 flex flex-col justify-between hover:shadow-xl transition-all tilt-card reveal-zoom delay-100">
+            <div>
+              <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200/60 dark:border-slate-800/60">
+                <div class="w-12 h-12 rounded-2xl bg-cyan-600/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xl">
+                  <i class="fa-solid fa-toolbox"></i>
+                </div>
+                <div class="text-right">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">أدوات العمل والهندسة</h3>
+                  <span class="text-xs text-slate-400">Tools & Workflow</span>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3.5">
+
+                <div class="p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/50 dark:border-slate-700/50 flex flex-col items-center text-center hover:scale-105 transition-transform">
+                  <i class="fa-brands fa-git-alt text-2xl text-orange-600 mb-2"></i>
+                  <span class="text-sm font-bold text-slate-800 dark:text-slate-200">Git & GitHub</span>
+                  <span class="text-[11px] text-slate-400">إدارة الإصدارات</span>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/50 dark:border-slate-700/50 flex flex-col items-center text-center hover:scale-105 transition-transform">
+                  <i class="fa-brands fa-figma text-2xl text-purple-500 mb-2"></i>
+                  <span class="text-sm font-bold text-slate-800 dark:text-slate-200">Figma to Code</span>
+                  <span class="text-[11px] text-slate-400">تحويل التصاميم</span>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/50 dark:border-slate-700/50 flex flex-col items-center text-center hover:scale-105 transition-transform">
+                  <i class="fa-solid fa-network-wired text-2xl text-emerald-500 mb-2"></i>
+                  <span class="text-sm font-bold text-slate-800 dark:text-slate-200">RESTful APIs</span>
+                  <span class="text-[11px] text-slate-400">ربط واستهلاك البيانات</span>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/50 dark:border-slate-700/50 flex flex-col items-center text-center hover:scale-105 transition-transform">
+                  <i class="fa-brands fa-npm text-2xl text-red-500 mb-2"></i>
+                  <span class="text-sm font-bold text-slate-800 dark:text-slate-200">NPM / Vite</span>
+                  <span class="text-[11px] text-slate-400">بيئات البناء والتطوير</span>
+                </div>
+
+                <div class="col-span-2 p-3.5 rounded-xl bg-slate-100/70 dark:bg-slate-800/60 border border-slate-200/50 dark:border-slate-700/50 flex items-center justify-center gap-3 hover:scale-105 transition-transform">
+                  <i class="fa-solid fa-terminal text-indigo-500 text-lg"></i>
+                  <div class="text-right">
+                    <span class="text-sm font-bold text-slate-800 dark:text-slate-200 block">VS Code & DevTools</span>
+                    <span class="text-xs text-slate-400">فحص الأداء والتصحيح السريع</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800/60 text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+              <i class="fa-solid fa-circle-check text-emerald-500"></i>
+              <span>سير عمل منظم يضمن تسليم الكود بأعلى جودة ودقة</span>
+            </div>
+          </div>
+
+          <!-- Category 3: Soft & Engineering Skills -->
+          <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 flex flex-col justify-between hover:shadow-xl transition-all tilt-card reveal-zoom delay-200">
+            <div>
+              <div class="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200/60 dark:border-slate-800/60">
+                <div class="w-12 h-12 rounded-2xl bg-purple-600/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl">
+                  <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div class="text-right">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">المهارات الشخصية والهندسية</h3>
+                  <span class="text-xs text-slate-400">Soft & Professional Skills</span>
+                </div>
+              </div>
+
+              <div class="space-y-3.5 text-right">
+
+                <div class="p-3 rounded-xl bg-slate-100/60 dark:bg-slate-800/50 flex items-center gap-3 hover:scale-[1.02] transition-transform">
+                  <span class="w-8 h-8 rounded-lg bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-sm font-bold">1</span>
+                  <div>
+                    <h5 class="text-sm font-bold text-slate-800 dark:text-slate-200">التفكير التحليلي والهندسي</h5>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">تفكيك المشكلات الكبيرة إلى عناصر بسيطة قابلة للحل</p>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-100/60 dark:bg-slate-800/50 flex items-center gap-3 hover:scale-[1.02] transition-transform">
+                  <span class="w-8 h-8 rounded-lg bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-sm font-bold">2</span>
+                  <div>
+                    <h5 class="text-sm font-bold text-slate-800 dark:text-slate-200">التواصل الفعال والعمل الجماعي</h5>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">تبادل الآراء والتنسيق الدقيق مع أعضاء الفريق والعملاء</p>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-100/60 dark:bg-slate-800/50 flex items-center gap-3 hover:scale-[1.02] transition-transform">
+                  <span class="w-8 h-8 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-sm font-bold">3</span>
+                  <div>
+                    <h5 class="text-sm font-bold text-slate-800 dark:text-slate-200">إدارة الوقت والالتزام بالمواعيد</h5>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">تنظيم المهام وتسليم المشاريع في الوقت المحدد</p>
+                  </div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-slate-100/60 dark:bg-slate-800/50 flex items-center gap-3 hover:scale-[1.02] transition-transform">
+                  <span class="w-8 h-8 rounded-lg bg-purple-500/10 text-purple-600 dark:text-purple-400 flex items-center justify-center text-sm font-bold">4</span>
+                  <div>
+                    <h5 class="text-sm font-bold text-slate-800 dark:text-slate-200">التعلم الذاتي ومواكبة الجديد</h5>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">متابعة مستمرة لأحدث مكتبات وأدوات الويب</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-slate-200/60 dark:border-slate-800/60 text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+              <i class="fa-solid fa-circle-check text-emerald-500"></i>
+              <span>عقلية هندسية تسعى دائماً للإتقان والتطوير</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         EXPERIENCE / PORTFOLIO SECTION (قسم المشاريع والخبرات)
+         ========================================================================= -->
+    <section id="portfolio" class="py-20 bg-slate-100/50 dark:bg-slate-900/30 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+          <span class="text-xs sm:text-sm font-bold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase bg-indigo-50 dark:bg-indigo-950/60 px-4 py-1.5 rounded-full border border-indigo-200/50 dark:border-indigo-800/50 inline-block mb-3">
+            أعمال ومحطات مميزة
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            أبرز المشاريع والتطبيقات البرمجية
+          </h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-400 text-base">
+            نماذج واقعية من المشاريع التي قمت بتطويرها مع التركيز على الكود النظيف وتجربة المستخدم
+          </p>
+          <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <!-- Filter Buttons with Ripple -->
+        <div class="flex flex-wrap items-center justify-center gap-2.5 mb-12 reveal">
+          <button type="button" data-filter="all" class="filter-btn btn-ripple px-5 py-2.5 rounded-xl text-sm font-bold bg-indigo-600 text-white shadow-lg shadow-indigo-500/25 transition-all">
+            جميع المشاريع
+          </button>
+          <button type="button" data-filter="ecommerce" class="filter-btn btn-ripple px-5 py-2.5 rounded-xl text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+            متاجر إلكترونية
+          </button>
+          <button type="button" data-filter="dashboard" class="filter-btn btn-ripple px-5 py-2.5 rounded-xl text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+            لوحات تحكم
+          </button>
+          <button type="button" data-filter="academic" class="filter-btn btn-ripple px-5 py-2.5 rounded-xl text-sm font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all">
+            بوابات ويب وتطبيقات
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <!-- Project 1: E-Commerce Platform -->
+          <div class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800/80 hover:shadow-2xl hover:border-indigo-500/40 transition-all duration-300 flex flex-col group tilt-card reveal-zoom" data-category="ecommerce">
+            <div class="relative overflow-hidden aspect-video bg-slate-800">
+              <img src="assets/images/project-ecommerce.jpg" alt="منصة المتجر الإلكتروني الذكي" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 justify-between">
+                <span class="text-xs font-semibold text-white bg-indigo-600/90 px-3 py-1 rounded-lg backdrop-blur-sm">متجر إلكتروني</span>
+                <div class="flex gap-2">
+                  <a href="#contact" class="w-9 h-9 rounded-xl bg-white/90 text-slate-900 flex items-center justify-center text-sm hover:bg-white" title="معاينة"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                  <a href="https://github.com/nisreen2hh" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-900/90 text-white flex items-center justify-center text-sm hover:bg-slate-900" title="الكود على GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between text-right">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    منصة متجر إلكتروني عصري
+                  </h3>
+                  <span class="text-xs px-2.5 py-1 rounded-md bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 font-semibold">
+                    E-Commerce
+                  </span>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  واجهة متجر إلكتروني متكاملة وسريعة تضم سلة تسوق تفاعلية، تصفية المنتجات، وتصميم يدعم الجوال بامتياز مع كود JavaScript نقي.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 mb-5 text-xs font-medium">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HTML5</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">JavaScript ES6</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Cart Logic</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                  <a href="#contact" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                    <span>طلب مشروع مشابه</span>
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                  </a>
+                  <span class="text-xs text-slate-400 font-mono">100% متجاوب</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Analytics & Metrics Dashboard -->
+          <div class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800/80 hover:shadow-2xl hover:border-cyan-500/40 transition-all duration-300 flex flex-col group tilt-card reveal-zoom delay-100" data-category="dashboard">
+            <div class="relative overflow-hidden aspect-video bg-slate-800">
+              <img src="assets/images/project-dashboard.jpg" alt="لوحة تحكم إدارة المهام والتحليلات" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 justify-between">
+                <span class="text-xs font-semibold text-white bg-cyan-600/90 px-3 py-1 rounded-lg backdrop-blur-sm">لوحة تحكم</span>
+                <div class="flex gap-2">
+                  <a href="#contact" class="w-9 h-9 rounded-xl bg-white/90 text-slate-900 flex items-center justify-center text-sm hover:bg-white" title="معاينة"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                  <a href="https://github.com/nisreen2hh" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-900/90 text-white flex items-center justify-center text-sm hover:bg-slate-900" title="الكود على GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between text-right">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+                    لوحة تحكم التحليلات والمقاييس
+                  </h3>
+                  <span class="text-xs px-2.5 py-1 rounded-md bg-cyan-50 dark:bg-cyan-950/50 text-cyan-600 dark:text-cyan-400 font-semibold">
+                    Dashboard
+                  </span>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  واجهة تحكم متطورة بالوضع الداكن تعرض مؤشرات الأداء الحية والرسوم البيانية التفاعلية مع دعم كامل للجداول والبيانات.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 mb-5 text-xs font-medium">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Dark Mode</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Charts UI</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Flex & Grid</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                  <a href="#contact" class="text-xs font-bold text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-1.5">
+                    <span>طلب لوحة تحكم</span>
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                  </a>
+                  <span class="text-xs text-slate-400 font-mono">واجهة متقدمة</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: University Academic Portal -->
+          <div class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800/80 hover:shadow-2xl hover:border-purple-500/40 transition-all duration-300 flex flex-col group tilt-card reveal-zoom delay-200" data-category="academic">
+            <div class="relative overflow-hidden aspect-video bg-slate-800">
+              <img src="assets/images/project-portal.jpg" alt="بوابة كلية الهندسة والبترول التفاعلية" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 justify-between">
+                <span class="text-xs font-semibold text-white bg-purple-600/90 px-3 py-1 rounded-lg backdrop-blur-sm">بوابة أكاديمية</span>
+                <div class="flex gap-2">
+                  <a href="#contact" class="w-9 h-9 rounded-xl bg-white/90 text-slate-900 flex items-center justify-center text-sm hover:bg-white" title="معاينة"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                  <a href="https://github.com/nisreen2hh" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-xl bg-slate-900/90 text-white flex items-center justify-center text-sm hover:bg-slate-900" title="الكود على GitHub"><i class="fa-brands fa-github"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col justify-between text-right">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                    بوابة كلية الهندسة والبترول
+                  </h3>
+                  <span class="text-xs px-2.5 py-1 rounded-md bg-purple-50 dark:bg-purple-950/50 text-purple-600 dark:text-purple-400 font-semibold">
+                    Portal
+                  </span>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  منصة تعليمية صُممت لطلاب الهندسة تتيح تنظيم المقررات الدراسية، متابعة المهام والإعلانات بتصميم أنيق ومريح للعين.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 mb-5 text-xs font-medium">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HTML5</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Interactive UI</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Modular Design</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                  <a href="#contact" class="text-xs font-bold text-purple-600 dark:text-purple-400 hover:underline flex items-center gap-1.5">
+                    <span>تفاصيل المشروع</span>
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                  </a>
+                  <span class="text-xs text-slate-400 font-mono">جامعة حضرموت</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Corporate Engineering Landing Page -->
+          <div class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800/80 hover:shadow-2xl hover:border-emerald-500/40 transition-all duration-300 flex flex-col group tilt-card reveal-zoom delay-100" data-category="academic">
+            <div class="p-6 flex-1 flex flex-col justify-between text-right">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
+                  <i class="fa-solid fa-building-columns"></i>
+                </div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                    صفحة هبوط لمكتب استشارات تقنية
+                  </h3>
+                  <span class="text-xs px-2.5 py-1 rounded-md bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 font-semibold">
+                    Landing Page
+                  </span>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  تصميم عصري جذاب للشركات الهندسية والتقنية يحتوي على نموذج حجز استشارات، وتأثيرات حركية خفيفة وسرعة تحميل فائقة.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 mb-5 text-xs font-medium">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">JavaScript</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">SEO Ready</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                  <a href="#contact" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1.5">
+                    <span>استفسار عن هذا العمل</span>
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                  </a>
+                  <span class="text-xs text-slate-400 font-mono">Modern UI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: Weather Live App -->
+          <div class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800/80 hover:shadow-2xl hover:border-amber-500/40 transition-all duration-300 flex flex-col group tilt-card reveal-zoom delay-200" data-category="academic">
+            <div class="p-6 flex-1 flex flex-col justify-between text-right">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
+                  <i class="fa-solid fa-cloud-sun"></i>
+                </div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                    تطبيق الطقس المباشر والطقس العالمي
+                  </h3>
+                  <span class="text-xs px-2.5 py-1 rounded-md bg-amber-50 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 font-semibold">
+                    Web App
+                  </span>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  تطبيق ويب تفاعلي يستعلم عن بيانات الطقس الحية عبر واجهات برمجة التطبيقات (OpenWeather API) بناءً على الموقع الجغرافي أو البحث المباشر.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 mb-5 text-xs font-medium">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">JavaScript Fetch</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Async/Await</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Glass UI</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                  <a href="#contact" class="text-xs font-bold text-amber-600 dark:text-amber-400 hover:underline flex items-center gap-1.5">
+                    <span>استعراض الكود</span>
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                  </a>
+                  <span class="text-xs text-slate-400 font-mono">Live API</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Creative Portfolio Template -->
+          <div class="project-card glass-card rounded-3xl overflow-hidden border border-slate-200/80 dark:border-slate-800/80 hover:shadow-2xl hover:border-indigo-500/40 transition-all duration-300 flex flex-col group tilt-card reveal-zoom delay-300" data-category="dashboard">
+            <div class="p-6 flex-1 flex flex-col justify-between text-right">
+              <div>
+                <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all">
+                  <i class="fa-solid fa-palette"></i>
+                </div>
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                    نظام ملف أعمال شخصي متطور
+                  </h3>
+                  <span class="text-xs px-2.5 py-1 rounded-md bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 font-semibold">
+                    Personal Brand
+                  </span>
+                </div>
+                <p class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                  تصميم فائق الأناقة للمطورين والمصممين يتيح استعراض السير الذاتية، التبديل الفوري بين الوضع الليلي والنهاري، وطباعة السيرة الذاتية بدقة.
+                </p>
+              </div>
+
+              <div>
+                <div class="flex flex-wrap gap-1.5 mb-5 text-xs font-medium">
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">HTML5</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Tailwind CSS</span>
+                  <span class="px-2.5 py-1 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Theme Engine</span>
+                </div>
+
+                <div class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800/80">
+                  <a href="#hero" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1.5">
+                    <span>النسخة الحالية</span>
+                    <i class="fa-solid fa-arrow-left text-[10px]"></i>
+                  </a>
+                  <span class="text-xs text-slate-400 font-mono">Senior UI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         CONTACT ME SECTION (قسم التواصل)
+         ========================================================================= -->
+    <section id="contact" class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+          <span class="text-xs sm:text-sm font-bold tracking-wider text-indigo-600 dark:text-indigo-400 uppercase bg-indigo-50 dark:bg-indigo-950/60 px-4 py-1.5 rounded-full border border-indigo-200/50 dark:border-indigo-800/50 inline-block mb-3">
+            ابقى على تواصل
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+            تواصل معي لبدء العمل معاً
+          </h2>
+          <p class="mt-4 text-slate-600 dark:text-slate-400 text-base">
+            هل لديك فكرة مشروع أو ترغب في استشارة هندسية في تطوير المواقع؟ يسعدني دائماً تواصلك
+          </p>
+          <div class="w-16 h-1 bg-gradient-to-r from-indigo-500 to-cyan-400 mx-auto mt-4 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+          <!-- Contact Info Cards (5 cols) -->
+          <div class="lg:col-span-5 space-y-4 text-right reveal-right">
+
+            <!-- Email Card with Copy Button -->
+            <div class="p-5 rounded-2xl glass-card border border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between group hover:border-indigo-500/50 transition-all tilt-card">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 font-medium block">البريد الإلكتروني</span>
+                  <a href="mailto:nisreen2hh@gmail.com" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                    nisreen2hh@gmail.com
+                  </a>
+                </div>
+              </div>
+              <button type="button" onclick="copyToClipboard('nisreen2hh@gmail.com', 'البريد الإلكتروني')" class="btn-ripple p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-indigo-600 text-sm transition-all" title="نسخ البريد">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+
+            <!-- Phone / WhatsApp Card with Copy & WhatsApp Links -->
+            <div class="p-5 rounded-2xl glass-card border border-slate-200/80 dark:border-slate-800/80 flex items-center justify-between group hover:border-emerald-500/50 transition-all tilt-card">
+              <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                  <i class="fa-solid fa-phone"></i>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 font-medium block">رقم الاتصال / واتساب</span>
+                  <a href="tel:774805950" class="text-sm sm:text-base font-bold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 font-mono transition-colors">
+                    774805950
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <a href="https://wa.me/967774805950" target="_blank" rel="noopener noreferrer" class="btn-ripple p-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-sm transition-all" title="محادثة واتساب">
+                  <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <button type="button" onclick="copyToClipboard('774805950', 'رقم الهاتف')" class="btn-ripple p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm transition-all" title="نسخ الرقم">
+                  <i class="fa-regular fa-copy"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Location Card -->
+            <div class="p-5 rounded-2xl glass-card border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-4 group tilt-card">
+              <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl group-hover:scale-110 transition-transform">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 font-medium block">الموقع الجغرافي</span>
+                <span class="text-sm sm:text-base font-bold text-slate-900 dark:text-white">
+                  اليمن / حضرموت
+                </span>
+              </div>
+            </div>
+
+            <!-- Social Media Handles Card -->
+            <div class="p-6 rounded-2xl glass-card border border-slate-200/80 dark:border-slate-800/80 text-right tilt-card">
+              <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-3">
+                حساباتي الرسمية الموحدة (@nisreen2hh):
+              </span>
+
+              <div class="grid grid-cols-2 gap-3">
+                <a href="https://linkedin.com/in/nisreen2hh" target="_blank" rel="noopener noreferrer" class="btn-ripple flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 hover:text-indigo-600 transition-all hover:scale-105">
+                  <i class="fa-brands fa-linkedin text-indigo-600 text-lg"></i>
+                  <span class="text-xs font-bold">LinkedIn</span>
+                </a>
+
+                <a href="https://github.com/nisreen2hh" target="_blank" rel="noopener noreferrer" class="btn-ripple flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 hover:text-indigo-600 transition-all hover:scale-105">
+                  <i class="fa-brands fa-github text-slate-900 dark:text-white text-lg"></i>
+                  <span class="text-xs font-bold">GitHub</span>
+                </a>
+
+                <a href="https://x.com/nisreen2hh" target="_blank" rel="noopener noreferrer" class="btn-ripple flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 hover:text-indigo-600 transition-all hover:scale-105">
+                  <i class="fa-brands fa-x-twitter text-slate-900 dark:text-white text-lg"></i>
+                  <span class="text-xs font-bold">X (Twitter)</span>
+                </a>
+
+                <a href="mailto:nisreen2hh@gmail.com" class="btn-ripple flex items-center gap-3 p-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 hover:text-indigo-600 transition-all hover:scale-105">
+                  <i class="fa-solid fa-at text-rose-500 text-lg"></i>
+                  <span class="text-xs font-bold">البريد المباشر</span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Contact Form (7 cols) -->
+          <div class="lg:col-span-7 reveal-left">
+            <div class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-200/80 dark:border-slate-800/80 shadow-xl tilt-card">
+
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-2 text-right">
+                أرسل لي رسالة مباشرة
+              </h3>
+              <p class="text-sm text-slate-500 dark:text-slate-400 mb-6 text-right">
+                سأقوم بالرد على استفسارك خلال أقل من 24 ساعة بإذن الله.
+              </p>
+
+              <form id="contact-form" class="space-y-4 text-right" novalidate>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Name Input -->
+                  <div>
+                    <label for="contact-name" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                      الاسم الكريم <span class="text-rose-500">*</span>
+                    </label>
+                    <div class="relative">
+                      <input type="text" id="contact-name" required placeholder="مثال: محمد السعدي" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm transition-all">
+                      <span class="absolute left-3.5 top-3.5 text-slate-400"><i class="fa-regular fa-user text-xs"></i></span>
+                    </div>
+                  </div>
+
+                  <!-- Email Input -->
+                  <div>
+                    <label for="contact-email" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                      البريد الإلكتروني <span class="text-rose-500">*</span>
+                    </label>
+                    <div class="relative">
+                      <input type="email" id="contact-email" required placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm transition-all dir-ltr text-right">
+                      <span class="absolute left-3.5 top-3.5 text-slate-400"><i class="fa-regular fa-envelope text-xs"></i></span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Subject Input -->
+                <div>
+                  <label for="contact-subject" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                    موضوع الرسالة
+                  </label>
+                  <div class="relative">
+                    <input type="text" id="contact-subject" placeholder="مثال: طلب تطوير موقع إلكتروني جديد" class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm transition-all">
+                    <span class="absolute left-3.5 top-3.5 text-slate-400"><i class="fa-solid fa-heading text-xs"></i></span>
+                  </div>
+                </div>
+
+                <!-- Message Input -->
+                <div>
+                  <label for="contact-message" class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">
+                    تفاصيل الرسالة <span class="text-rose-500">*</span>
+                  </label>
+                  <textarea id="contact-message" rows="4" required placeholder="اكتب تفاصيل استفسارك أو فكرة مشروعك هنا..." class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-800/90 border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-sm resize-none transition-all"></textarea>
+                </div>
+
+                <!-- Submit Button with Ripple & Glow Border -->
+                <button type="submit" id="contact-submit-btn" class="btn-ripple btn-glow-border w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-700 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-base shadow-lg shadow-indigo-600/30 hover:shadow-indigo-600/50 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                  <i class="fa-solid fa-paper-plane text-sm"></i>
+                  <span>إرسال الرسالة الآن</span>
+                </button>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER (الفوتر)
+       ========================================================================= -->
+  <footer class="border-t border-slate-200/80 dark:border-slate-800/80 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md pt-12 pb-8 relative z-10 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-100 dark:border-slate-800">
+
+        <!-- Logo & Title in Footer -->
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-cyan-400 flex items-center justify-center text-white shadow-md">
+            <i class="fa-solid fa-code text-base"></i>
+          </div>
+          <div class="text-right">
+            <h4 class="font-bold text-slate-900 dark:text-white text-base">نسرين عادل باقطيان</h4>
+            <p class="text-xs text-indigo-600 dark:text-indigo-400">مهندسة حاسوب | خريجة جامعة حضرموت</p>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <nav class="flex flex-wrap items-center justify-center gap-6 text-sm font-semibold text-slate-600 dark:text-slate-400">
+          <a href="#hero" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">الرئيسية</a>
+          <a href="#about" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">عني</a>
+          <a href="#skills" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">المهارات</a>
+          <a href="#portfolio" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">المشاريع</a>
+          <a href="#contact" class="hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">تواصل معي</a>
+        </nav>
+
+        <!-- Social Icons -->
+        <div class="flex items-center gap-3 text-slate-500">
+          <a href="https://github.com/nisreen2hh" target="_blank" rel="noopener noreferrer" class="btn-ripple w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white flex items-center justify-center text-sm transition-all hover:scale-110" title="GitHub">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://linkedin.com/in/nisreen2hh" target="_blank" rel="noopener noreferrer" class="btn-ripple w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white flex items-center justify-center text-sm transition-all hover:scale-110" title="LinkedIn">
+            <i class="fa-brands fa-linkedin-in"></i>
+          </a>
+          <a href="https://x.com/nisreen2hh" target="_blank" rel="noopener noreferrer" class="btn-ripple w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white flex items-center justify-center text-sm transition-all hover:scale-110" title="X">
+            <i class="fa-brands fa-x-twitter"></i>
+          </a>
+          <a href="mailto:nisreen2hh@gmail.com" class="btn-ripple w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white flex items-center justify-center text-sm transition-all hover:scale-110" title="Email">
+            <i class="fa-solid fa-envelope"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Location -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 dark:text-slate-400 gap-3 text-center sm:text-right">
+        <p>
+          جميع الحقوق محفوظة © <span id="current-year">2025</span> <strong class="text-slate-700 dark:text-slate-300">نسرين عادل باقطيان</strong>.
+        </p>
+        <p class="flex items-center gap-1.5">
+          <span>صُمم وطُوّر بكل إتقان في</span>
+          <span class="text-rose-500"><i class="fa-solid fa-heart"></i></span>
+          <span class="font-medium text-slate-700 dark:text-slate-300">حضرموت، اليمن</span>
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       BACK TO TOP FLOATING BUTTON
+       ========================================================================= -->
+  <button id="back-to-top" type="button" aria-label="العودة لأعلى الصفحة" class="btn-ripple fixed bottom-6 right-6 z-40 w-12 h-12 rounded-2xl bg-indigo-600 text-white shadow-xl shadow-indigo-600/40 hover:bg-indigo-500 hover:scale-110 flex items-center justify-center transition-all duration-300 opacity-0 invisible translate-y-4">
+    <i class="fa-solid fa-arrow-up text-base"></i>
+  </button>
+
+  <!-- =========================================================================
+       CV MODAL (نافذة السيرة الذاتية التفاعلية والطباعة)
+       ========================================================================= -->
+  <div id="cv-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div class="modal-content relative w-full max-w-3xl max-h-[90vh] bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl shadow-2xl overflow-y-auto transform scale-95 transition-transform duration-300 p-6 sm:p-8 text-right">
+
+      <!-- Top Action Bar (No-Print) -->
+      <div class="no-print flex items-center justify-between pb-6 mb-6 border-b border-slate-100 dark:border-slate-800">
+        <div class="flex items-center gap-2">
+          <button id="print-cv-btn" type="button" class="btn-ripple inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow-md shadow-indigo-600/30 transition-all">
+            <i class="fa-solid fa-print"></i>
+            <span>طباعة / حفظ كـ PDF</span>
+          </button>
+        </div>
+
+        <button type="button" aria-label="إغلاق" class="close-cv-modal w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-slate-900 dark:hover:text-white flex items-center justify-center transition-colors">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Printable Resume Content -->
+      <div class="space-y-6">
+
+        <!-- Header of CV -->
+        <div class="flex flex-col sm:flex-row items-center gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
+          <img src="assets/images/avatar.jpg" alt="نسرين عادل باقطيان" class="w-24 h-24 rounded-2xl object-cover border-2 border-indigo-500 shadow-md">
+          <div class="text-center sm:text-right flex-1">
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white mb-1">نسرين عادل باقطيان</h2>
+            <p class="text-indigo-600 dark:text-indigo-400 font-bold text-base mb-2">مهندسة حاسوب | مطورة واجهات ويب (Front-End Developer)</p>
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-3 text-xs text-slate-500 dark:text-slate-400">
+              <span><i class="fa-solid fa-envelope text-indigo-500 ml-1"></i> nisreen2hh@gmail.com</span>
+              <span><i class="fa-solid fa-phone text-emerald-500 ml-1"></i> 774805950</span>
+              <span><i class="fa-solid fa-location-dot text-rose-500 ml-1"></i> اليمن / حضرموت</span>
+              <span><i class="fa-brands fa-github text-slate-700 dark:text-slate-300 ml-1"></i> @nisreen2hh</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Education -->
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2 border-r-4 border-indigo-600 pr-3">
+            <span>التعليم والمؤهلات الأكاديمية</span>
+          </h3>
+          <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-800">
+            <div class="flex items-center justify-between font-bold text-slate-900 dark:text-white text-sm mb-1">
+              <span>بكالوريوس هندسة الحاسوب</span>
+              <span class="text-xs text-indigo-600 dark:text-indigo-400">خريجة</span>
+            </div>
+            <p class="text-xs text-slate-600 dark:text-slate-300 font-medium">
+              جامعة حضرموت - كلية الهندسة والبترول | حضرموت، اليمن
+            </p>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-2 leading-relaxed">
+              دراسة تخصصية معمقة في هندسة البرمجيات، خوارزميات الحاسوب، هياكل البيانات، شبكات الحاسب، وتطوير الأنظمة والتطبيقات البرمجية.
+            </p>
+          </div>
+        </div>
+
+        <!-- Summary & Profile -->
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2 border-r-4 border-indigo-600 pr-3">
+            <span>الملخص المهني</span>
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+            مهندسة حاسوب شغوفة بتطوير واجهات الويب الحديثة والمبتكرة. أمتلك خبرة عملية في تحويل التصاميم إلى مواقع متجاوبة وسريعة باستخدام HTML5، Tailwind CSS، و JavaScript النظيف. أسعى دائماً لتوظيف مهاراتي الهندسية في حل التحديات البرمجية وبناء تجارب رقمية تلبي أعلى معايير الجودة ورضا العملاء.
+          </p>
+        </div>
+
+        <!-- Technical Skills in CV -->
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2 border-r-4 border-indigo-600 pr-3">
+            <span>المهارات التقنية (Technical Skills)</span>
+          </h3>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs">
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-800 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i> HTML5 (Semantic & RTL)
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-800 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i> Tailwind CSS & Responsive
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-800 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i> JavaScript (ES6+ & DOM)
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-800 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i> React.js Core & Components
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-800 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i> Git & GitHub Version Control
+            </div>
+            <div class="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-800 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2">
+              <i class="fa-solid fa-check text-emerald-500"></i> RESTful APIs & JSON
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Projects in CV -->
+        <div>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2 border-r-4 border-indigo-600 pr-3">
+            <span>نماذج من المشاريع المنجزة</span>
+          </h3>
+          <div class="space-y-3 text-xs">
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-800">
+              <div class="font-bold text-slate-900 dark:text-white">متجر إلكتروني متكامل (E-Commerce Platform)</div>
+              <p class="text-slate-500 dark:text-slate-400 mt-1">تطوير واجهة متجر تفاعلية كاملة مع سلة تسوق وإدارة حالة المنتجات باستخدام Tailwind CSS و JS.</p>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/50 dark:border-slate-800">
+              <div class="font-bold text-slate-900 dark:text-white">بوابة كلية الهندسة والبترول الأكاديمية</div>
+              <p class="text-slate-500 dark:text-slate-400 mt-1">تصميم وتطوير بوابة رقمية متجاوبة لإدارة الجداول ومقررات الطلاب في كلية الهندسة.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Close Button Footer (No-Print) -->
+      <div class="no-print mt-8 pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+        <button type="button" class="close-cv-modal px-6 py-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold text-sm transition-colors">
+          إغلاق النافذة
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
